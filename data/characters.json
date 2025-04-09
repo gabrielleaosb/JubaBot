@@ -6,7 +6,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359545694884466708/2e8f8a4dc304bb905d6d76e8f3e46e0c.jpg?ex=67f7df18&is=67f68d98&hm=4ea3da7a4c963e17360b3c0c766848ac1015781157f5897c37fea6828fde5093",
     "universe": "Marvel",
     "group": "Vingadores",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Wilson Fisk",
@@ -15,7 +16,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359546912339918929/wilson_fisk.jpg?ex=67f7e03b&is=67f68ebb&hm=213e5ba8d63543c0b0007a41e1eb5a3d055264450b85c370fc38e6e3b6699760",
     "universe": "Marvel",
     "group": "Demolidor",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Caveira Vermelha",
@@ -24,7 +26,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359547683710173264/caveira_vermelha.jpg?ex=67f7e0f2&is=67f68f72&hm=8bff88780d65d4f87a9ea7228325b1637663eda001a1f9d8d911249767674f66",
     "universe": "Marvel",
     "group": "Caveira Vermelha",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Gamora",
@@ -33,7 +36,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359547838341583039/gamora.jpg?ex=67f7e117&is=67f68f97&hm=a7bdd283f56d2bc90010672711820515b4a48ffb8bd29a07ad7c5e9510a3bde4",
     "universe": "Marvel",
     "group": "Guardiões da Galáxia",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Jean Grey",
@@ -42,7 +46,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359547892758479142/jean_grey.jpg?ex=67f7e124&is=67f68fa4&hm=9c13a5d4b147b1600b803af17f2637ea243162ab26b329ce07bf59ad08b92e84",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Noturno",
@@ -51,7 +56,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359549033559097577/noturno.jpg?ex=67f7e234&is=67f690b4&hm=00a15de1fdf5078f29c7f248a190390594cc6cb49197af9cc8e457a10b8f0c11",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Agatha Harkness",
@@ -60,7 +66,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359550981460856993/agatha.jpg?ex=67f7e405&is=67f69285&hm=eace9721d5f76b8e3873fb4e352e0a3f62a750e3b790331f742ab419d30d1012",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Treinador",
@@ -69,7 +76,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359551194942537979/treinador.jpg?ex=67f7e438&is=67f692b8&hm=e3e34831e4856f30bfcfe7c7c03272b840e13798fd2e0c0c6f4ea2702f751d7c",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Druig",
@@ -78,7 +86,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359551441324347463/druig.jpg?ex=67f7e472&is=67f692f2&hm=49343de25015968f965a1a3bce12566308004a56d7415a4cc61b5a197d52cb05",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Wiccano",
@@ -87,7 +96,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359551489630142715/wiccano.jpg?ex=67f7e47e&is=67f692fe&hm=d37b21c98e35de0a47f0213b567adfb302ef3f35cf994423ca935a4b66c45991",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Marc Spector",
@@ -96,7 +106,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359551541576601720/marc_spector.jpg?ex=67f7e48a&is=67f6930a&hm=ba7d30d22a2443acc25ff748f018e48f021dd6c98f7abfa5aaae5cf19bbefd66",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Jessica Jones",
@@ -105,7 +116,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553008400077021/jessica_jones.jpg?ex=67f7e5e8&is=67f69468&hm=4880324dcbc9d25833eb02cd697921893afcec84ec2d5bfac643a6e8d76cfa80",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Lady Deathstrike",
@@ -114,7 +126,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553269839695912/lady_deathstrike.jpg?ex=67f7e626&is=67f694a6&hm=f015ae04887cbea3ff8c7a1560ca8ae6451deba0f4033d07ee427be151669887",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Srta. América (America Chavez)",
@@ -123,7 +136,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553342065348928/america_chavez.jpg?ex=67f7e638&is=67f694b8&hm=8dfd65805667572205544963c5762de66e704b32d9a54a4f5074bfe046f1fdb2",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 100,
+    "stars": 0
   },
   {
     "name": "Homem de Ferro",
@@ -132,7 +146,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359544767331045499/980c27e9c2f2c2e69fc40d0eb588a354.jpg?ex=67f7de3b&is=67f68cbb&hm=deb51767e5d3a8766c825de375be79c6bdd880730f4eed47309726c58f85480d",
     "universe": "Marvel",
     "group": "Vingadores",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Capitão América",
@@ -141,7 +156,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359545223214006344/4927ee7ccfb4c53b7392a8ff86bc3bc9.jpg?ex=67f7dea8&is=67f68d28&hm=aff77fcf32758ed1d963df24b15b0eef478ffcb9b5decfc17cd4f7846db735d5",
     "universe": "Marvel",
     "group": "Vingadores",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Homem-Aranha",
@@ -150,7 +166,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359545223541293246/edf418e1f5e1349904c3ceabc03eb0c8.jpg?ex=67f7dea8&is=67f68d28&hm=80f9cee20ad8410018b837c527143b09cae7895a7ef3a61699b7506376da4631",
     "universe": "Marvel",
     "group": "Vingadores",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Rocket Raccoon",
@@ -159,7 +176,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359547786135212112/rocket.jpg?ex=67f7e10b&is=67f68f8b&hm=d5bc9a395e942e623c14eae8e4f710e157f81733838fa687587344083cfc6787",
     "universe": "Marvel",
     "group": "Guardiões da Galáxia",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Blade",
@@ -168,7 +186,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359549219047739566/blade.jpg?ex=67f7e261&is=67f690e1&hm=22a0d50342d1faf0916d3087deb36a65cdb0e5b17d79e5be698756df70aced6a",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Elektra",
@@ -177,7 +196,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359549273498456095/elektra.jpg?ex=67f7e26e&is=67f690ee&hm=0a4442dc4c6b01c3b21e28e95ad7bc07ccf238f4a571ba0d5ce8165c0087c045",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Howard the Duck",
@@ -186,7 +206,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359551259815706846/howard.jpg?ex=67f7e447&is=67f692c7&hm=2e7abe76d37eb312339ce8a5b0a868147b093178f9a463ab628ef16d9794737b",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Kang, o Conquistador",
@@ -195,7 +216,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359551322445058159/kang.jpg?ex=67f7e456&is=67f692d6&hm=74eb549201f4463c9ae3906678f764afd91dfcfc7cdcf4a98eb7fb7a3f90a9a9",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Makkari",
@@ -204,7 +226,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359551379902959716/makkari.jpg?ex=67f7e464&is=67f692e4&hm=8c051eb4083f92c169695b65706e69acef6e4ad4c5cc02c6eed60f91d2f0f18a",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Patsy Walker (Hellcat)",
@@ -213,7 +236,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553079808229640/hellcat.jpg?ex=67f7e5f9&is=67f69479&hm=6809e4db2e3a5bea8cf4dbe070be25c853216171cab8eca778fe900d01b62069",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Daken",
@@ -222,7 +246,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553223622525219/daken.jpg?ex=67f7e61b&is=67f6949b&hm=c4d01cc576fba1bb052431594ac6731ce43150572fb9df31b7129d03f0ec8838",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Riri Williams (Ironheart)",
@@ -231,7 +256,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553395794641179/riri_williams.jpg?ex=67f7e644&is=67f694c4&hm=9f89085654fe91d47899a70d8ce21c627fe35eb7d4d35778558979ee0894e467",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Valquiria (Brunnhilde)",
@@ -240,7 +266,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553443907239966/brunnhilde.jpg?ex=67f7e650&is=67f694d0&hm=f8550ce53faa827577e9d15ec4f6c10ea59826c9c8617e3ff21b20e94be4d3a3",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 150,
+    "stars": 0
   },
   {
     "name": "Doutor Estranho",
@@ -249,7 +276,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359576977425567870/doutor_estranho.jpg?ex=67f7fc3b&is=67f6aabb&hm=b07bec1526c7b5ff3ee1a86f005222c8b6cf40115ac57998b2c0f19de5bc6a0c&",
     "universe": "Marvel",
     "group": "Vingadores",
-    "power_base": 0
+    "power_base": 250,
+    "stars": 0
   },
   {
     "name": "Cavaleiro da Lua",
@@ -258,7 +286,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359546796631658827/cavaleiro_da_lua.jpg?ex=67f7e01f&is=67f68e9f&hm=ad0498856802aafc51ff9c8287ffdfa1c80646920befd8443eaa25aee5127aa2",
     "universe": "Marvel",
     "group": "Cavaleiro da Lua",
-    "power_base": 0
+    "power_base": 250,
+    "stars": 0
   },
   {
     "name": "Demolidor",
@@ -267,7 +296,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359546851325640824/demolidor.jpg?ex=67f7e02c&is=67f68eac&hm=2227db3e17e30094e03b1436c0576e4f57f2d71e32ec0bc4e0468e970d807af6",
     "universe": "Marvel",
     "group": "Defensores",
-    "power_base": 0
+    "power_base": 250,
+    "stars": 0
   },
   {
     "name": "Magneto",
@@ -276,7 +306,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359548016671064287/magneto.jpg?ex=67f7e142&is=67f68fc2&hm=111f208dea5e8d2705ec78b330f10a549260a31840724e7cbd5c6383ee226143",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 250,
+    "stars": 0
   },
   {
     "name": "Tempestade",
@@ -285,7 +316,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359549104081867002/tempestade.jpg?ex=67f7e245&is=67f690c5&hm=e477d240a683b3684a85cce0228feec107c1287725b854251e17a2e862337f27",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 250,
+    "stars": 0
   },
   {
     "name": "Mística",
@@ -294,7 +326,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359549173086556273/mistica.jpg?ex=67f7e256&is=67f690d6&hm=86a2d4741288881fb92f8d944acbbaae6434c130fc2257b5380e5222f11d6a04",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 250,
+    "stars": 0
   },
   {
     "name": "Nick Fury",
@@ -303,7 +336,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359551033520423112/nick_fury.jpg?ex=67f7e411&is=67f69291&hm=64e4a523215d1a8554d0aec23eae1fe9749ed79ab3567fa2c1ffff766462467b",
     "universe": "Marvel",
     "group": "Vingadores",
-    "power_base": 0
+    "power_base": 250,
+    "stars": 0
   },
   {
     "name": "Namor",
@@ -312,7 +346,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359551086905655506/namor.jpg?ex=67f7e41e&is=67f6929e&hm=58f0a124fba8c232a56db87949fd93018906416c6eb98f4b2c5aa055e513ae1f",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 250,
+    "stars": 0
   },
   {
     "name": "Senhor Sinistro",
@@ -321,7 +356,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359551590566068254/senhor_sinistro.jpg?ex=67f7e496&is=67f69316&hm=6273acf8c31b0039e79038c25db8f0c8ce1bc8e7cb767fc40bd8de0cb29efd6d",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 250,
+    "stars": 0
   },
   {
     "name": "Luke Cage",
@@ -330,7 +366,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553181033562262/luke_cage.jpg?ex=67f7e611&is=67f69491&hm=02f96fdcd5c1506c21541a8220304df828ee320330429fe41798d95ce3ced13b",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 250,
+    "stars": 0
   },
   {
     "name": "Thanos",
@@ -339,7 +376,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359545621731737610/4616da2b9cebe3c7ee76c56d1c03d053.jpg?ex=67f7df07&is=67f68d87&hm=d612abc9951e73cdb4b6deab8c3b8b6d824295ca92cd2aeb5575cea81552c1b8",
     "universe": "Marvel",
     "group": "Vilões Cósmicos",
-    "power_base": 0
+    "power_base": 500,
+    "stars": 0
   },
   {
     "name": "Loki",
@@ -348,7 +386,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359546667430580254/loki.jpg?ex=67f7e000&is=67f68e80&hm=867bfce5cadef3f4d31ea23f0536aabd37a11906edeefede453e281e2a86362a",
     "universe": "Marvel",
     "group": "Vilões Cósmicos",
-    "power_base": 0
+    "power_base": 500,
+    "stars": 0
   },
   {
     "name": "Wanda Maximoff",
@@ -357,7 +396,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359546729552154694/wanda.jpg?ex=67f7e00f&is=67f68e8f&hm=a19f96d2df95c9c6e33587cf4ae497a10724f0be5d6e278cfacc43c70be5f92b",
     "universe": "Marvel",
     "group": "Vingadores",
-    "power_base": 0
+    "power_base": 500,
+    "stars": 0
   },
   {
     "name": "Shang-Chi",
@@ -366,7 +406,8 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359551139170881607/shang_chi.jpg?ex=67f7e42a&is=67f692aa&hm=1bf83dc7f65f001614aec033de96fa3e2eb7bcabcb7c3479085ac8641380f4d8",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 500,
+    "stars": 0
   },
   {
     "name": "Punho de Ferro",
@@ -375,6 +416,7 @@
     "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
     "universe": "Marvel",
     "group": "",
-    "power_base": 0
+    "power_base": 500,
+    "stars": 0
   }
 ]

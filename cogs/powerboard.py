@@ -29,8 +29,12 @@ class PowerBoard(commands.Cog):
         db = get_db()
         users = await db["users"].find().to_list(length=100)
 
-        # Ordenar por poder decrescente
-        users.sort(key=lambda x: x.get("power", 0), reverse=True)
+        def calculate_power(user):
+            collection = user.get("collection", [])
+            return sum(int(char.get("power_base", 0) * (1 + char.get("stars", 0) * 0.1)) for char in collection)
+
+        users.sort(key=calculate_power, reverse=True)
+
 
         if not users:
             return await ctx.send("❌ Nenhum jogador registrado ainda.")
@@ -42,7 +46,7 @@ class PowerBoard(commands.Cog):
 
         for i, user in enumerate(users[:10], start=1):
             name = user.get("name", "Desconhecido")
-            power = user.get("power", 0)
+            power = calculate_power(user)
             rank = get_power_rank(power)
             embed.add_field(
                 name=f"{i}. {name}",

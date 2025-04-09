@@ -1,17 +1,9 @@
 import discord
 from discord.ext import commands
-from discord.ui import View, Button
 from database.db import get_db
 from utils.power import get_power_rank
+from views.profile_view import ProfileView  
 
-
-class ProfileView(View):
-    def __init__(self):
-        super().__init__(timeout=None)
-
-    @discord.ui.button(label="🎴 Ver Coleção", style=discord.ButtonStyle.primary, disabled=True)
-    async def view_collection(self, interaction: discord.Interaction, button: Button):
-        await interaction.response.send_message("🚧 Esta funcionalidade ainda está em desenvolvimento!", ephemeral=True)
 
 class Profile(commands.Cog):
     def __init__(self, bot):
@@ -26,14 +18,20 @@ class Profile(commands.Cog):
         player = await db.users.find_one({"_id": user_id})
 
         if not player:
-            msg = f"{ctx.author.mention}, o usuário {target.mention} não está registrado!" if member else f"{ctx.author.mention}, você ainda não está registrado! Use `!register` primeiro."
+            msg = (
+                f"{ctx.author.mention}, o usuário {target.mention} não está registrado!"
+                if member else
+                f"{ctx.author.mention}, você ainda não está registrado! Use `!register` primeiro."
+            )
             return await ctx.send(msg)
 
-        power = player.get("power", 0)
+        collection = player.get("collection", [])
+        power = sum(int(char.get("power_base", 0) * (1 + char.get("stars", 0) * 0.1)) for char in collection)
+
         rank = get_power_rank(power)
 
         embed = discord.Embed(
-            title=f"📜 Perfil de {target.display_name}",
+            title=f"Perfil de {target.display_name}",
             color=discord.Color.gold()
         )
 
@@ -43,7 +41,7 @@ class Profile(commands.Cog):
         embed.description = (
             f"**Moedas:** `{player.get('coins', 0)}`\n\n"
             f"⭐ **PODER TOTAL** ⭐\n"
-            f"```{power}```"
+            f"```{power}```\n"
             f"Rank:  {rank}"
         )
 

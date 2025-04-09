@@ -35,9 +35,10 @@ async def setup_hook():
     await bot.load_extension("cogs.daily")
     await bot.load_extension("cogs.rewards")
     await bot.load_extension("cogs.work")
-    await bot.load_extension("cogs.packview")
+    await bot.load_extension("cogs.pack_view")
     await bot.load_extension("cogs.help")
     await bot.load_extension("cogs.character_list")
     await bot.load_extension("cogs.powerboard")
+    await bot.load_extension("cogs.admin")
 
 bot.run(os.getenv("DISCORD_TOKEN"))
