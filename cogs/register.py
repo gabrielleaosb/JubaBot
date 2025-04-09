@@ -19,12 +19,12 @@ class Register(commands.Cog):
             new_player = {
                 "_id": user_id,
                 "name": ctx.author.name,
-                "coins": 100,
+                "coins": 200,
                 "collection": [],
-                "reputation": 0
+                "power": 0
             }
             await db.users.insert_one(new_player)
-            await ctx.send(f"{ctx.author.mention},  você foi registrado com sucesso com 100 moedas iniciais! ✅")
+            await ctx.send(f"{ctx.author.mention},  você foi registrado com sucesso com 200 moedas iniciais! ✅")
 
 async def setup(bot):
     await bot.add_cog(Register(bot))

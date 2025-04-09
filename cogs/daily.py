@@ -29,7 +29,7 @@ class Daily(commands.Cog):
                 await ctx.send(f"{ctx.author.mention}, você já resgatou seu prêmio diário hoje!  Volte amanhã!")
                 return
 
-        reward = 150  
+        reward = 350  
         await db.users.update_one(
             {"_id": user_id},
             {
