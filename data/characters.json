@@ -418,5 +418,405 @@
     "group": "",
     "power_base": 500,
     "stars": 0
+  },
+  {
+    "name": "Invencível",
+    "rarity": "legendary",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 10000,
+    "stars": 0
+  },
+  {
+    "name": "Omni-Man",
+    "rarity": "legendary",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 10000,
+    "stars": 0
+  },
+  {
+    "name": "Eve Atômica",
+    "rarity": "epic",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 500,
+    "stars": 0
+  },
+  {
+    "name": "Rex Explosão",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Dupli-Kate",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Oliver Grayson",
+    "rarity": "epic",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 500,
+    "stars": 0
+  },
+  {
+    "name": "Cecil Stedman",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Rudy",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Imortal",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Sansão Negro",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Rachel",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Menina-Monstro",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Gêmeos Demolidores",
+    "rarity": "epic",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 500,
+    "stars": 0
+  },
+  {
+    "name": "Angstrom Levy",
+    "rarity": "rare",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Blindado",
+    "rarity": "uncommon",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 150,
+    "stars": 0
+  },
+  {
+    "name": "Super-Morpho",
+    "rarity": "uncommon",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 150,
+    "stars": 0
+  },
+  {
+    "name": "Allen",
+    "rarity": "epic",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 500,
+    "stars": 0
+  },
+  {
+    "name": "Titã",
+    "rarity": "uncommon",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 150,
+    "stars": 0
+  },
+  {
+    "name": "Face Mecânica",
+    "rarity": "rare",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Thokk",
+    "rarity": "epic",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 500,
+    "stars": 0
+  },
+  {
+    "name": "Sinclair",
+    "rarity": "uncommon",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 150,
+    "stars": 0
+  },
+  {
+    "name": "Dr. Sísmico",
+    "rarity": "common",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 100,
+    "stars": 0
+  },
+  {
+    "name": "Isótopo",
+    "rarity": "common",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 100,
+    "stars": 0
+  },
+  {
+    "name": "Kursk",
+    "rarity": "common",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 100,
+    "stars": 0
+  },
+  {
+    "name": "Asa Negra",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Ka-Hor",
+    "rarity": "common",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 100,
+    "stars": 0
+  },
+  {
+    "name": "General Kregg",
+    "rarity": "rare",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Sr. Liu",
+    "rarity": "common",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 100,
+    "stars": 0
+  },
+  {
+    "name": "Multi-Paul",
+    "rarity": "uncommon",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 150,
+    "stars": 0
+  },
+  {
+    "name": "Mulher Marcial",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Vento Vermelho",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Vulto Verde",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Marciano",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Aquarius",
+    "rarity": "rare",
+    "type": "hero",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Rei Lagarto",
+    "rarity": "common",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 100,
+    "stars": 0
+  },
+  {
+    "name": "Lagarto Supremo",
+    "rarity": "common",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 100,
+    "stars": 0
+  },
+  {
+    "name": "Lucan",
+    "rarity": "uncommon",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 150,
+    "stars": 0
+  },
+  {
+    "name": "Anissa",
+    "rarity": "rare",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 250,
+    "stars": 0
+  },
+  {
+    "name": "Conquista",
+    "rarity": "epic",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 500,
+    "stars": 0
+  },
+  {
+    "name": "Thragg",
+    "rarity": "legendary",
+    "type": "villain",
+    "image": "https://cdn.discordapp.com/attachments/1359544215364698343/1359553128600440912/punho_de_ferro.jpg?ex=67f7e605&is=67f69485&hm=8892cd9d2ca9b3164c607a55453665064f7e7a4f09b8dd0f18e81074460bdf80",
+    "universe": "Invencível",
+    "group": "",
+    "power_base": 10000,
+    "stars": 0
   }
 ]
