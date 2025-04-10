@@ -66,129 +66,121 @@ class Rolls(commands.Cog):
 
     @commands.command(name="roll", aliases=["r"])
     async def roll(self, ctx):
+        # Verificar se a mensagem já foi processada
+        if hasattr(ctx, '_roll_processed'):
+            return
+        ctx._roll_processed = True
+
         user_id = str(ctx.author.id)
         db = get_db()
         star_system = StarsSystem(user_id)
 
-        # Verifica registro do usuário
-        user_data = await db["users"].find_one({"_id": user_id})
-        if not user_data:
-            await ctx.send(f"{ctx.author.mention}, registre-se primeiro com `!register`!")
-            return
-
-        now = datetime.now(self.timezone)
-        today = now.date()
-
-        last_roll_str = user_data.get("last_roll")
-        if last_roll_str:
-            last_roll = datetime.strptime(last_roll_str, "%Y-%m-%d").date()
-            if last_roll == today:
-                await ctx.send(f"{ctx.author.mention}, você já usou seu roll hoje! Volte amanhã!")
+        try:
+            # Verifica registro do usuário
+            user_data = await db["users"].find_one({"_id": user_id})
+            if not user_data:
+                await ctx.send(f"{ctx.author.mention}, registre-se primeiro com `!register`!")
                 return
-        
-        next_reset = datetime.combine(today, datetime.min.time(), tzinfo=self.timezone) + timedelta(hours=now.hour + 1)
-        
-        if now >= next_reset:
-            roll_history = []
+
+            now = datetime.now(self.timezone)
+            current_hour = now.replace(minute=0, second=0, microsecond=0)
+
+            # Verifica o reset horário
+            roll_history = user_data.get("roll_history", [])
+            
+            # Se há rolls no histórico, verifica se são da hora atual
+            if roll_history:
+                first_roll_time = datetime.fromtimestamp(roll_history[0], tz=self.timezone)
+                first_roll_hour = first_roll_time.replace(minute=0, second=0, microsecond=0)
+                
+                if current_hour > first_roll_hour:
+                    roll_history = []
+                    await db["users"].update_one(
+                        {"_id": user_id},
+                        {"$set": {"roll_history": roll_history}}
+                    )
+
+            roll_limit = 10
+
+            if len(roll_history) >= roll_limit:
+                next_reset = current_hour + timedelta(hours=1)
+                time_until_reset = next_reset - now
+                minutes = int(time_until_reset.total_seconds() // 60)
+                seconds = int(time_until_reset.total_seconds() % 60)
+                
+                await ctx.send(
+                    f"{ctx.author.mention}, você já usou todas suas rolls nesta hora! "
+                    f"Próximo reset em: {minutes}m {seconds}s"
+                )
+                return
+
+            # Processar o roll
+            rarity = self._get_random_rarity()
+            char = await self._get_random_character(rarity)
+            if not char:
+                await ctx.send("Não foi possível encontrar um personagem para esta rolagem.")
+                return
+
+            # Registrar o novo roll
+            roll_history.append(now.timestamp())
             await db["users"].update_one(
                 {"_id": user_id},
                 {"$set": {"roll_history": roll_history}}
             )
-            await ctx.send(f"{ctx.author.mention}, seu histórico de rolls foi resetado!")
 
-        roll_history = user_data.get("roll_history", [])
-        roll_limit = 10
-
-        if len(roll_history) >= roll_limit:
-            time_until_reset = next_reset - now
-            hours = int(time_until_reset.total_seconds() // 3600)
-            minutes = int((time_until_reset.total_seconds() % 3600) // 60)
-
-            await ctx.send(
-                f"{ctx.author.mention}, você já usou todas suas rolls! "
-                f"Próximo reset em: {hours}h {minutes}m"
+            # Atualizar coleção
+            collection = user_data.get("collection", [])
+            existing_char = next(
+                (c for c in collection if str(c["_id"]) == str(char["_id"])), 
+                None
             )
-            return
 
-        roll_history.append(now.timestamp())
-        await db["users"].update_one(
-            {"_id": user_id},
-            {
-                "$set": {"last_roll": today.isoformat()},
-                "$set": {"roll_history": roll_history}
-            }
-        )
+            old_power = calculate_total_power(collection)
 
-        rarity = self._get_random_rarity()
-        char = await self._get_random_character(rarity)
+            if existing_char:
+                existing_char['stars'] = min(existing_char.get('stars', 0) + 1, 20)
+                stars = existing_char['stars']
+                action = f"🌟 +1 Estrela (Total: {stars})"
+            else:
+                new_character = {
+                    "_id": char["_id"],
+                    "name": char["name"],
+                    "rarity": char["rarity"],
+                    "power_base": char.get("power_base", 100),
+                    "stars": 0,
+                    "description": char.get("description", ""),
+                    "image": char.get("image", "")
+                }
+                collection.append(new_character)
+                stars = 0
+                action = "🎉 Novo personagem!"
 
-        if not char:
-            await ctx.send("Não foi possível encontrar um personagem para esta rolagem.")
-            return
+            await db["users"].update_one(
+                {"_id": user_id},
+                {"$set": {"collection": collection}}
+            )
 
-        collection = user_data.get("collection", [])
-        existing_char = next(
-            (c for c in collection if str(c["_id"]) == str(char["_id"])), 
-            None
-        )
+            # Criar embed
+            embed = discord.Embed(
+                title=f"{char['name']} ({rarity.capitalize()})",
+                color=discord.Color.random()
+            )
+            embed.add_field(name="Ação", value=action, inline=True)
+            embed.add_field(name="Estrelas", value=star_system.get_star_display(stars), inline=True)
+            
+            if char.get('image'):
+                embed.set_image(url=char['image'])
+                
+            embed.set_footer(
+                text=f"Rolls restantes: {10 - len(roll_history)}/10 | "
+                    f"Próximo reset: {current_hour.hour + 1}:00"
+            )
 
-        rarity_colors = {
-            "common": discord.Color.light_grey(),
-            "uncommon": discord.Color.green(),
-            "rare": discord.Color.blue(),
-            "epic": discord.Color.purple(),
-            "legendary": discord.Color.gold()
-        }
+            await ctx.send(embed=embed)
 
-        old_power = calculate_total_power(collection)
-
-        if existing_char:
-            existing_char['stars'] = min(existing_char.get('stars', 0) + 1, 20)
-            base_power = existing_char.get('power_base', 100)
-            existing_char['power'] = base_power * (1 + 0.1 * existing_char['stars'])
-            stars = existing_char['stars']
-            action = f"🌟 +1 Estrela (Total: {stars})"
-        else:
-            new_character = {
-                "_id": char["_id"],
-                "name": char["name"],
-                "rarity": char["rarity"],
-                "power_base": char.get("power_base", 100),
-                "stars": 0,
-                "description": char.get("description", ""),
-                "image": char.get("image", "")
-            }
-            collection.append(new_character)
-            stars = 0
-            action = "🎉 Novo personagem!"
-
-        await db["users"].update_one(
-            {"_id": user_id},
-            {"$set": {"collection": collection}}
-        )
-
-        new_power = calculate_total_power(collection)
-
-        await check_rank_promotion(self.bot, user_id, old_power, new_power, ctx.channel)
-
-        embed = discord.Embed(
-            title=f"{char['name']} ({rarity.capitalize()})",
-            description=char.get('rarity', 'Sem raridade.'),
-            color=rarity_colors.get(char['rarity'], discord.Color.default())
-        )
-
-        embed.add_field(name="Ação", value=action, inline=True)
-        embed.add_field(name="Estrelas", value=star_system.get_star_display(stars), inline=True)
-
-        if 'image' in char and char['image']:
-            embed.set_image(url=char['image'])
-
-        embed.set_footer(
-            text=f"Rolls restantes: {10 - len(roll_history)}/10 nesta hora | "
-                f"Total na coleção: {len(collection)} personagens"
-        )
-
-        await ctx.send(embed=embed)
+        except Exception as e:
+            print(f"Erro no comando roll: {e}")
+            await ctx.send("Ocorreu um erro ao processar seu roll. Tente novamente.")
 
     def _get_random_rarity(self):
         rand = random.random()

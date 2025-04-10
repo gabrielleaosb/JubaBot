@@ -11,9 +11,7 @@ class CollectionPaginationView(View):
         self.user_id = user_id
         self.collection = collection
         self.page = page
-
         self.total_pages = len(collection)
-
         self.update_buttons()
 
     def update_buttons(self):
@@ -22,19 +20,23 @@ class CollectionPaginationView(View):
         self.add_item(NextButton(self))
 
     async def send_page(self, interaction: Interaction):
-        if self.page < 0 or self.page >= len(self.collection):
-            return await interaction.response.send_message("❌ Página inválida.", ephemeral=True)
+        if not self.collection:
+            return await interaction.response.send_message("❌ Coleção vazia.", ephemeral=True)
+
+        # Garante que a página está dentro dos limites (com comportamento circular)
+        self.page = self.page % len(self.collection)
+        if self.page < 0:
+            self.page = len(self.collection) - 1
 
         char = self.collection[self.page]
 
+        # Restante do código para criar o embed...
         name = char.get("name", "Desconhecido")
         rarity = char.get("rarity", "Comum")
-
         power_base = char.get("power_base", 0)
         stars = char.get("stars", 0)
         power = int(power_base * (1 + stars * 0.1))
         stars_display = get_star_display(stars)
-
         image = char.get("image", "")
         type = "Herói" if char.get("type") == "hero" else "Vilão"
 
@@ -76,10 +78,9 @@ class PreviousButton(Button):
         if str(interaction.user.id) != self.view_ref.user_id:
             return await interaction.response.send_message("❌ Isso não é para você!", ephemeral=True)
 
-        if self.view_ref.page > 0:
-            self.view_ref.page -= 1
-            self.view_ref.update_buttons()
-            await self.view_ref.send_page(interaction)
+        self.view_ref.page -= 1
+        self.view_ref.update_buttons()
+        await self.view_ref.send_page(interaction)
 
 
 class NextButton(Button):
@@ -91,10 +92,9 @@ class NextButton(Button):
         if str(interaction.user.id) != self.view_ref.user_id:
             return await interaction.response.send_message("❌ Isso não é para você!", ephemeral=True)
 
-        if self.view_ref.page < self.view_ref.total_pages - 1:
-            self.view_ref.page += 1
-            self.view_ref.update_buttons()
-            await self.view_ref.send_page(interaction)
+        self.view_ref.page += 1
+        self.view_ref.update_buttons()
+        await self.view_ref.send_page(interaction)
 
 
 class ProfileView(View):

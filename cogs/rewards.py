@@ -54,9 +54,9 @@ class Rewards(commands.Cog):
                 minutes = remainder // 60
                 work_status = f"⏳ Já trabalhou recentemente.\nDisponível em **{hours}h {minutes}min**."
             else:
-                work_status = "Disponível agora! Use `!work`"
+                work_status = "Disponível agora! Use !work"
         else:
-            work_status = "Disponível agora! Use `!work`"
+            work_status = "Disponível agora! Use !work"
 
         # ---------------- ROLLS ---------------- #
         last_roll_str = user.get("last_roll_time")  
