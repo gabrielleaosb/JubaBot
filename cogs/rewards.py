@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from database.db import get_db
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, time
 import pytz
 
 class Rewards(commands.Cog):
@@ -27,8 +27,9 @@ class Rewards(commands.Cog):
         if last_daily_str:
             last_daily = datetime.strptime(last_daily_str, "%Y-%m-%d").date()
             if last_daily == today:
-                tomorrow = datetime.combine(today + timedelta(days=1), datetime.min.time(), tzinfo=self.timezone)
-                remaining = tomorrow - now
+                # Calcula o horário de reset (meia-noite do próximo dia)
+                reset_time = self.timezone.localize(datetime.combine(today + timedelta(days=1), time(0, 0)))
+                remaining = reset_time - now
                 hours, remainder = divmod(int(remaining.total_seconds()), 3600)
                 minutes = remainder // 60
                 daily_status = f"Já resgatado hoje.\nReseta em **{hours}h {minutes}min**."
@@ -59,30 +60,26 @@ class Rewards(commands.Cog):
             work_status = "Disponível agora! Use !work"
 
         # ---------------- ROLLS ---------------- #
-        last_roll_str = user.get("last_roll_time")  
+        last_roll_str = user.get("last_roll")
         rolls_status = ""
-        rolls_left = 10 - len(user.get("roll_history", []))  
+        
         if last_roll_str:
-            if isinstance(last_roll_str, str):
-                last_roll = datetime.fromisoformat(last_roll_str)
-            else:
-                last_roll = datetime.fromtimestamp(last_roll_str)  
-
+            last_roll = datetime.fromisoformat(last_roll_str)
+            
             if last_roll.tzinfo is None:
-                last_roll = self.timezone.localize(last_roll)  
-
-            roll_cooldown = timedelta(hours=1)
-            elapsed = now - last_roll
-
-            if elapsed < roll_cooldown:
-                remaining = roll_cooldown - elapsed
-                hours, remainder = divmod(int(remaining.total_seconds()), 3600)
+                last_roll = self.timezone.localize(last_roll)
+            
+            next_available = last_roll + timedelta(hours=1)
+            
+            if now < next_available:
+                time_left = next_available - now
+                hours, remainder = divmod(int(time_left.total_seconds()), 3600)
                 minutes = remainder // 60
-                rolls_status = f"⏳ Já fez {10 - rolls_left} rolls nesta hora.\nReseta em **{hours}h {minutes}min**."
+                rolls_status = f"⏳ Roll já utilizado. Próximo disponível em **{hours}h {minutes}min**"
             else:
-                rolls_status = f"Disponível agora! Você pode fazer **{rolls_left}** rolls."
+                rolls_status = "Disponível agora! Use `!roll`"
         else:
-            rolls_status = f"Disponível agora! Você pode fazer **{rolls_left}** rolls."
+            rolls_status = "Disponível agora! Use `!roll`"
 
         # ---------------- EMBED ---------------- #
         embed = discord.Embed(
@@ -105,7 +102,7 @@ class Rewards(commands.Cog):
         )
 
         embed.add_field(
-            name="🎲 `!roll`",
+            name="🎲 `!roll` (10 personagens)",
             value=rolls_status,
             inline=False
         )

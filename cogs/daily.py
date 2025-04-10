@@ -1,7 +1,7 @@
-import discord
+import discord  # noqa: F401
 from discord.ext import commands
 from database.db import get_db
-from datetime import datetime
+from datetime import datetime, timedelta
 from utils.power import DAILY_REWARDS, get_power_rank, calculate_total_power
 import pytz
 
@@ -27,7 +27,18 @@ class Daily(commands.Cog):
         if last_daily_str:
             last_daily = datetime.strptime(last_daily_str, "%Y-%m-%d").date()
             if last_daily == today:
-                await ctx.send(f"{ctx.author.mention}, você já resgatou seu prêmio diário hoje!  Volte amanhã!")
+                # Calcula o tempo restante até o próximo daily
+                tomorrow = now + timedelta(days=1)
+                reset_time = datetime.combine(tomorrow.date(), datetime.min.time()).astimezone(self.timezone)
+                time_left = reset_time - now
+                
+                hours, remainder = divmod(time_left.seconds, 3600)
+                minutes = remainder // 60
+                
+                await ctx.send(
+                    f"{ctx.author.mention}, você já resgatou seu prêmio diário hoje! "
+                    f"Volte em **{hours}h {minutes}min**!"
+                )
                 return
         
         total_power = calculate_total_power(user.get("collection", []))

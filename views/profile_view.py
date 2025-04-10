@@ -3,7 +3,7 @@ from discord.ui import View, Button
 from discord import Interaction
 from database.db import get_db
 from utils.star_emoji import get_star_display
-
+from bson import ObjectId
 
 class CollectionPaginationView(View):
     def __init__(self, user_id: str, collection: list, page: int = 0):
@@ -18,6 +18,23 @@ class CollectionPaginationView(View):
         self.clear_items()
         self.add_item(PreviousButton(self))
         self.add_item(NextButton(self))
+    
+    def _format_stars_display(self, stars: int) -> str:
+        """Formata a exibição de estrelas com quebra de linha a cada 10 estrelas"""
+        star_emoji = "⭐"
+        max_stars_per_line = 10
+        
+        full_lines = stars // max_stars_per_line
+        remaining_stars = stars % max_stars_per_line
+        
+        lines = []
+        for _ in range(full_lines):
+            lines.append(star_emoji * max_stars_per_line)
+        
+        if remaining_stars > 0:
+            lines.append(star_emoji * remaining_stars)
+        
+        return "\n".join(lines)
 
     async def send_page(self, interaction: Interaction):
         if not self.collection:
@@ -29,17 +46,22 @@ class CollectionPaginationView(View):
             self.page = len(self.collection) - 1
 
         char = self.collection[self.page]
+        
+        # Verifica se é um ObjectId e busca o personagem completo se necessário
+        if isinstance(char, ObjectId):
+            db = get_db()
+            char = await db["characters"].find_one({"_id": char})
+            if not char:
+                return await interaction.response.send_message("❌ Personagem não encontrado.", ephemeral=True)
 
-        # Restante do código para criar o embed...
         name = char.get("name", "Desconhecido")
-        rarity = char.get("rarity", "Comum")
+        rarity = char.get("rarity", "common").lower()  # Padroniza para lowercase
         power_base = char.get("power_base", 0)
-        stars = char.get("stars", 0)
+        stars = char.get("stars", 0)  # Garante que stars existe, padrão 0
         power = int(power_base * (1 + stars * 0.1))
-        stars_display = get_star_display(stars)
         image = char.get("image", "")
-        type = "Herói" if char.get("type") == "hero" else "Vilão"
-
+        type = char.get("type", "Desconhecido")
+        
         rarity_colors = {
             "common": discord.Color.light_grey(),
             "uncommon": discord.Color.green(),
@@ -53,10 +75,12 @@ class CollectionPaginationView(View):
         embed = discord.Embed(
             title=f"🎴 Coleção de {interaction.user.display_name}",
             description=(
-                f"**{name}** {stars_display}\n"
-                f"Tipo: **{type}**\n"
+                f"**{name}**\n"
+                f"{self._format_stars_display(stars)}\n"
+                f"Tipo: **{type.capitalize()}**\n"
                 f"Raridade: **{rarity.capitalize()}**\n\n"
-                f"Poder: `{power}`"
+                f"Poder: `{power}`\n"
+                f"Estrelas: `{stars}`"
             ),
             color=embed_color
         )
@@ -110,7 +134,18 @@ class ProfileView(View):
         if not user or not user.get("collection"):
             return await interaction.response.send_message("❌ Você não possui personagens em sua coleção!", ephemeral=True)
 
+        # Garante que estamos trabalhando com a coleção completa
         collection = user["collection"]
-        view = CollectionPaginationView(user_id, collection, 0)
+        
+        # Se a coleção contiver ObjectIds, precisamos buscar os personagens completos
+        if collection and isinstance(collection[0], ObjectId):
+            db = get_db()
+            collection = await db["characters"].find({"_id": {"$in": collection}}).to_list(None)
+            # Preserva as estrelas do usuário
+            for char in collection:
+                user_char = next((c for c in user["collection"] if isinstance(c, dict) and c.get("_id") == char["_id"]), None)
+                if user_char:
+                    char["stars"] = user_char.get("stars", 0)
 
+        view = CollectionPaginationView(user_id, collection, 0)
         await view.send_page(interaction)

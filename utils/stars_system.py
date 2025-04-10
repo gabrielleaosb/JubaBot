@@ -26,7 +26,6 @@ class StarsSystem:
         base_power = character.get('power_base', 100) 
         new_power = base_power * (1 + 0.1 * new_stars)
         
-        # Atualiza os valores
         existing_char['stars'] = new_stars
         existing_char['power'] = new_power
 
