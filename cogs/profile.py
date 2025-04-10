@@ -26,7 +26,13 @@ class Profile(commands.Cog):
             return await ctx.send(msg)
 
         collection = player.get("collection", [])
-        power = sum(int(char.get("power_base", 0) * (1 + char.get("stars", 0) * 0.1)) for char in collection)
+
+        # Calculando o poder corretamente
+        power = sum(
+            char.get("power_base", 1) * (1 + char.get("stars", 0) * 0.1)
+            for char in collection
+        )
+        power = int(power)
 
         rank = get_power_rank(power)
 
@@ -40,6 +46,7 @@ class Profile(commands.Cog):
 
         embed.description = (
             f"**Moedas:** `{player.get('coins', 0)}`\n\n"
+            f"**Personagens:** `{len(collection)}`\n\n"
             f"⭐ **PODER TOTAL** ⭐\n"
             f"```{power}```\n"
             f"Rank:  {rank}"

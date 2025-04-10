@@ -35,49 +35,47 @@ class Work(commands.Cog):
                 await ctx.send(f"⏳ {ctx.author.mention}, você já trabalhou recentemente. Tente novamente em **{hours}h {minutes}min**.")
                 return
 
-        # Jobs por raridade
         common_jobs = [
-            ("Patrulhamento Noturno", "Você patrulhou as ruas e impediu pequenos crimes.", random.randint(10, 25)),
-            ("Laboratório Tecnológico", "Você testou um novo traje.", random.randint(15, 30)),
-            ("Infiltração Disfarçada", "Você se infiltrou em um esconderijo de vilões.", random.randint(12, 28)),
-            ("Espionagem Básica", "Você espionou uma gangue local.", random.randint(10, 25)),
-            ("Proteção em Evento", "Você protegeu um evento importante!", random.randint(10, 20)),
+            ("Patrulhamento Noturno", "Você patrulhou as ruas e impediu pequenos crimes.", random.randint(80, 120)),
+            ("Laboratório Tecnológico", "Você testou um novo traje.", random.randint(75, 105)),
+            ("Infiltração Disfarçada", "Você se infiltrou em um esconderijo de vilões.", random.randint(80, 110)),
+            ("Espionagem Básica", "Você espionou uma gangue local.", random.randint(75, 120)),
+            ("Proteção em Evento", "Você protegeu um evento importante!", random.randint(85, 125)),
         ]
 
         uncommon_jobs = [
-            ("Missão Intergaláctica", "Você desativou uma bomba alienígena!", random.randint(30, 50)),
-            ("Roubo à Alta Tecnologia", "Você roubou equipamento avançado!", random.randint(35, 55)),
-            ("Caçada de Vilão", "Você capturou um vilão procurado!", random.randint(40, 60)),
-            ("Missão Mercenária", "Você cumpriu um contrato sombrio...", random.randint(30, 45)),
+            ("Missão Intergaláctica", "Você desativou uma bomba alienígena!", random.randint(140, 185)),
+            ("Roubo à Alta Tecnologia", "Você roubou equipamento avançado!", random.randint(135, 170)),
+            ("Caçada de Vilão", "Você capturou um vilão procurado!", random.randint(140, 190)),
+            ("Missão Mercenária", "Você cumpriu um contrato sombrio...", random.randint(135, 175)),
         ]
 
         rare_jobs = [
-            ("Duelo Lendário", "Você derrotou um vilão épico!", random.randint(70, 100)),
-            ("Ataque ao Quartel", "Você invadiu uma base de heróis!", random.randint(65, 90)),
-            ("Salvou o Multiverso", "Você impediu o colapso do multiverso!", random.randint(80, 100)),
+            ("Duelo Lendário", "Você derrotou um vilão épico!", random.randint(190, 285)),
+            ("Ataque ao Quartel", "Você invadiu uma base de heróis!", random.randint(200, 290)),
+            ("Salvou o Multiverso", "Você impediu o colapso do multiverso!", random.randint(200, 300)),
         ]
 
         epic_jobs = [
-            ("Guerra Temporal", "Você lutou no passado e no futuro ao mesmo tempo!", random.randint(100, 150)),
-            ("Aliança Sombria", "Você liderou uma equipe de vilões em uma missão de risco!", random.randint(90, 140)),
-            ("Resgate Dimensional", "Você resgatou reféns de uma dimensão paralela!", random.randint(100, 130)),
+            ("Guerra Temporal", "Você lutou no passado e no futuro ao mesmo tempo!", random.randint(320, 480)),
+            ("Aliança Sombria", "Você liderou uma equipe de vilões em uma missão de risco!", random.randint(310, 490)),
+            ("Resgate Dimensional", "Você resgatou reféns de uma dimensão paralela!", random.randint(340, 500)),
         ]
 
         legendary_jobs = [
-            ("Combate Cósmico Final", "Você enfrentou uma entidade cósmica para salvar a existência!", random.randint(160, 210)),
-            ("Ascensão do Herói Supremo", "Você foi reconhecido como o maior herói do século!", random.randint(160, 220)),
-            ("Domínio do Multiverso", "Você tomou controle de realidades paralelas inteiras!", random.randint(170, 230)),
+            ("Combate Cósmico Final", "Você enfrentou uma entidade cósmica para salvar a existência!", random.randint(800, 1200)),
+            ("Ascensão do Herói Supremo", "Você foi reconhecido como o maior herói do século!", random.randint(800, 1200)),
+            ("Domínio do Multiverso", "Você tomou controle de realidades paralelas inteiras!", random.randint(800, 1200)),
         ]
 
         job_pool = [
-            (common_jobs, 65, "Comum", "🟢", discord.Color.green()),
-            (uncommon_jobs, 20, "Incomum", "🔵", discord.Color.blue()),
-            (rare_jobs, 8, "Raro", "🟣", discord.Color.purple()),
-            (epic_jobs, 5, "Épico", "🟠", discord.Color.orange()),
-            (legendary_jobs, 2, "Lendário", "🔴", discord.Color.red()),
+            (common_jobs, 40, "Comum", "🟢", discord.Color.green()),
+            (uncommon_jobs, 25, "Incomum", "🔵", discord.Color.blue()),
+            (rare_jobs, 20, "Raro", "🟣", discord.Color.purple()),
+            (epic_jobs, 10, "Épico", "🟠", discord.Color.orange()),
+            (legendary_jobs, 5, "Lendário", "🔴", discord.Color.red()),
         ]
 
-        # Escolhe job e raridade
         job_list, _, rarity_name, rarity_emoji, embed_color = random.choices(
             job_pool,
             weights=[j[1] for j in job_pool],
@@ -86,7 +84,6 @@ class Work(commands.Cog):
         job = random.choice(job_list)
         title, description, reward = job
 
-        # Atualiza banco com nova hora de trabalho e recompensa
         await db.users.update_one(
             {"_id": user_id},
             {
@@ -95,7 +92,6 @@ class Work(commands.Cog):
             }
         )
 
-        # Envia embed com resultado
         embed = discord.Embed(
             title=f"{rarity_emoji} {title}",
             description=description,

@@ -52,6 +52,37 @@ class AdminCommands(commands.Cog):
         )
 
         await ctx.send(f"💰 {quantidade} moedas adicionadas para {member.display_name}.")
+    
+    @commands.command(name="removecoins")
+    @is_owner()
+    async def remove_coins(self, ctx, member: discord.Member):
+        db = get_db()
+        user_id = str(member.id)
+
+        await db["users"].update_one(
+            {"_id": user_id},
+            {"$set": {"coins": 0}}
+        )
+
+        await ctx.send(f"💸 As moedas de {member.display_name} foram zeradas!")
+    
+    @commands.command(name="resetrolls")
+    @is_owner()
+    async def reset_rolls(self, ctx, member: discord.Member = None):
+        """Reseta o histórico de rolls de um usuário (ou o seu próprio)"""
+        member = member or ctx.author
+        db = get_db()
+        user_id = str(member.id)
+
+        await db["users"].update_one(
+            {"_id": user_id},
+            {"$set": {"roll_history": []}}
+        )
+
+        updated_user = await db["users"].find_one({"_id": user_id})
+        rolls_left = 10 - len(updated_user.get("roll_history", []))
+
+        await ctx.send(f"🔄 O histórico de rolls de {member.display_name} foi resetado com sucesso! Rolls restantes: {rolls_left}.")
 
 async def setup(bot):
     await bot.add_cog(AdminCommands(bot))

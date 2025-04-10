@@ -1,15 +1,16 @@
 from database.db import get_db
+from time import sleep
 
 POWER_TIERS = [
-    {"min": 10000, "name": "Supremo", "emoji": "👑"},
-    {"min": 7000, "name": "Celestial", "emoji": "🌌"},
-    {"min": 5500, "name": "Divino", "emoji": "🌟"},
-    {"min": 4000, "name": "Lendário", "emoji": "🔥"},
-    {"min": 2500, "name": "Mítico", "emoji": "⚡"},
-    {"min": 1500, "name": "Elite", "emoji": "🛡️"},
-    {"min": 1000, "name": "Herói", "emoji": "⚔️"},
-    {"min": 500, "name": "Guerreiro", "emoji": "🎯"},
-    {"min": 200,  "name": "Aventureiro", "emoji": "🏹"},
+    {"min": 20000, "name": "Supremo", "emoji": "👑"},
+    {"min": 15000, "name": "Celestial", "emoji": "🌌"},
+    {"min": 10000, "name": "Divino", "emoji": "🌟"},
+    {"min": 8000, "name": "Lendário", "emoji": "🔥"},
+    {"min": 6000, "name": "Mítico", "emoji": "⚡"},
+    {"min": 4000, "name": "Elite", "emoji": "🛡️"},
+    {"min": 2500, "name": "Herói", "emoji": "⚔️"},
+    {"min": 1000, "name": "Guerreiro", "emoji": "🎯"},
+    {"min": 500,  "name": "Aventureiro", "emoji": "🏹"},
     {"min": 0,   "name": "Iniciante", "emoji": "🐣"},
 ]
 
@@ -26,6 +27,18 @@ RANK_REWARDS = {
     "Supremo": 15000,
 }
 
+DAILY_REWARDS = {
+    "Iniciante": 400,
+    "Aventureiro": 600,
+    "Guerreiro": 800,
+    "Herói": 1000,
+    "Elite": 1400,
+    "Mítico": 2000,
+    "Lendário": 3000,
+    "Divino": 4500,
+    "Celestial": 6000,
+    "Supremo": 8500,
+}
 
 def get_power_rank(power: int) -> str:
     for tier in POWER_TIERS:
@@ -59,8 +72,10 @@ async def check_rank_promotion(bot, user_id: int, old_power: int, new_power: int
 
         if new_power > old_power:
             reward = RANK_REWARDS.get(new_rank_name, 0)
+            sleep(1.8)
             message = f"🎉 <@{user_id}> subiu de rank!\n🔼 **{old_rank} ➜ {new_rank}**\n💰 Recompensa: **{reward} coins**"
         else:
+            sleep(1.8)
             message = f"⚠️ <@{user_id}> foi rebaixado de rank.\n🔽 **{old_rank} ➜ {new_rank}**"
 
         if new_power > old_power:

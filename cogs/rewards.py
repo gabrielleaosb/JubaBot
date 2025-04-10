@@ -13,7 +13,7 @@ class Rewards(commands.Cog):
     async def rewards(self, ctx):
         db = get_db()
         user_id = str(ctx.author.id)
-        now = datetime.now(self.timezone)
+        now = datetime.now(self.timezone) 
         today = now.date()
 
         user = await db.users.find_one({"_id": user_id})
@@ -38,7 +38,7 @@ class Rewards(commands.Cog):
             daily_status = "Disponível agora! Use `!daily`"
 
         # ---------------- WORK ---------------- #
-        last_work_str = user.get("last_work_time")  # agora usamos o campo correto
+        last_work_str = user.get("last_work_time")  
         work_status = ""
         if last_work_str:
             if isinstance(last_work_str, str):
@@ -58,6 +58,32 @@ class Rewards(commands.Cog):
         else:
             work_status = "Disponível agora! Use `!work`"
 
+        # ---------------- ROLLS ---------------- #
+        last_roll_str = user.get("last_roll_time")  
+        rolls_status = ""
+        rolls_left = 10 - len(user.get("roll_history", []))  
+        if last_roll_str:
+            if isinstance(last_roll_str, str):
+                last_roll = datetime.fromisoformat(last_roll_str)
+            else:
+                last_roll = datetime.fromtimestamp(last_roll_str)  
+
+            if last_roll.tzinfo is None:
+                last_roll = self.timezone.localize(last_roll)  
+
+            roll_cooldown = timedelta(hours=1)
+            elapsed = now - last_roll
+
+            if elapsed < roll_cooldown:
+                remaining = roll_cooldown - elapsed
+                hours, remainder = divmod(int(remaining.total_seconds()), 3600)
+                minutes = remainder // 60
+                rolls_status = f"⏳ Já fez {10 - rolls_left} rolls nesta hora.\nReseta em **{hours}h {minutes}min**."
+            else:
+                rolls_status = f"Disponível agora! Você pode fazer **{rolls_left}** rolls."
+        else:
+            rolls_status = f"Disponível agora! Você pode fazer **{rolls_left}** rolls."
+
         # ---------------- EMBED ---------------- #
         embed = discord.Embed(
             title="🎁 Recompensas Diárias",
@@ -75,6 +101,12 @@ class Rewards(commands.Cog):
         embed.add_field(
             name="🛠️ `!work`",
             value=work_status,
+            inline=False
+        )
+
+        embed.add_field(
+            name="🎲 `!roll`",
+            value=rolls_status,
             inline=False
         )
 

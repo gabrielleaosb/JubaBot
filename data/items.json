@@ -1,0 +1,47 @@
+[
+  {
+      "name": "Cristal de Poder 1",
+      "type": "power_up",
+      "effect": "+50 de poder",
+      "item_id": "power_crystal_1",
+      "category": "power_up",
+      "rarity": "incomum",
+      "description": "Aumenta o poder de um personagem em 50 pontos."
+  },
+  {
+      "name": "Cristal de Poder 2",
+      "type": "power_up",
+      "effect": "+150 de poder",
+      "item_id": "power_crystal_2",
+      "category": "power_up",
+      "rarity": "epico",
+      "description": "Aumenta o poder de um personagem em 150 pontos."
+  },
+  {
+      "name": "Cristal de Poder 3",
+      "type": "power_up",
+      "effect": "+300 de poder",
+      "item_id": "power_crystal_3",
+      "category": "power_up",
+      "rarity": "lendário",
+      "description": "Aumenta o poder de um personagem em 300 pontos."
+  },
+  {
+      "name": "Poção de Estrela",
+      "type": "star_up",
+      "effect": "+1 estrela",
+      "item_id": "star_potion",
+      "category": "star_up",
+      "rarity": "raro",
+      "description": "Adiciona 1 estrela ao personagem."
+  },
+  {
+      "name": "Carta de Evolução",
+      "type": "evolution",
+      "effect": "Eleva a raridade de um personagem",
+      "item_id": "evolution_card",
+      "category": "evolution",
+      "rarity": "epico",
+      "description": "Eleva completamente a raridade de um personagem (exceto lendários)."
+  }
+]

@@ -24,7 +24,7 @@ class PowerBoard(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @commands.command(name="rank", aliases=["r"])
+    @commands.command(name="rank")
     async def rank(self, ctx):
         db = get_db()
         users = await db["users"].find().to_list(length=100)

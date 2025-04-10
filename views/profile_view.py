@@ -28,6 +28,7 @@ class CollectionPaginationView(View):
         char = self.collection[self.page]
 
         name = char.get("name", "Desconhecido")
+        rarity = char.get("rarity", "Comum")
 
         power_base = char.get("power_base", 0)
         stars = char.get("stars", 0)
@@ -35,30 +36,40 @@ class CollectionPaginationView(View):
         stars_display = get_star_display(stars)
 
         image = char.get("image", "")
-        tipo = "Herói" if char.get("type") == "hero" else "Vilão"
+        type = "Herói" if char.get("type") == "hero" else "Vilão"
+
+        rarity_colors = {
+            "common": discord.Color.light_grey(),
+            "uncommon": discord.Color.green(),
+            "rare": discord.Color.blue(),
+            "epic": discord.Color.purple(),
+            "legendary": discord.Color.gold()
+        }   
+
+        embed_color = rarity_colors.get(rarity, discord.Color.default())
 
         embed = discord.Embed(
             title=f"🎴 Coleção de {interaction.user.display_name}",
             description=(
                 f"**{name}** {stars_display}\n"
-                f"Tipo: **{tipo}**\n\n"
+                f"Tipo: **{type}**\n"
+                f"Raridade: **{rarity.capitalize()}**\n\n"
                 f"Poder: `{power}`"
             ),
-            color=discord.Color.purple()
+            color=embed_color
         )
 
         if image:
             embed.set_image(url=image)
 
-        embed.set_footer(text=f"Página {self.page + 1} de {len(self.collection)}")
+        embed.set_footer(text=f"{self.page + 1}/{len(self.collection)}")
 
         await interaction.response.edit_message(embed=embed, view=self)
 
 
-
 class PreviousButton(Button):
     def __init__(self, view: CollectionPaginationView):
-        super().__init__(label="⬅️ Anterior", style=discord.ButtonStyle.secondary)
+        super().__init__(label="⬅️", style=discord.ButtonStyle.secondary)
         self.view_ref = view
 
     async def callback(self, interaction: Interaction):
@@ -73,7 +84,7 @@ class PreviousButton(Button):
 
 class NextButton(Button):
     def __init__(self, view: CollectionPaginationView):
-        super().__init__(label="Próximo ➡️", style=discord.ButtonStyle.secondary)
+        super().__init__(label="➡️", style=discord.ButtonStyle.secondary)
         self.view_ref = view
 
     async def callback(self, interaction: Interaction):
@@ -90,7 +101,7 @@ class ProfileView(View):
     def __init__(self):
         super().__init__(timeout=None)
 
-    @discord.ui.button(label="🎴 Ver Coleção", style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Coleção", style=discord.ButtonStyle.primary)
     async def view_collection(self, interaction: Interaction, button: Button):
         db = get_db()
         user_id = str(interaction.user.id)

@@ -15,4 +15,6 @@ async def connect_to_db():
     print("🟢 Conectado ao MongoDB")
 
 def get_db():
+    if db is None:
+        raise Exception("Banco de dados não conectado! Certifique-se de chamar connect_to_db() primeiro.")
     return db
