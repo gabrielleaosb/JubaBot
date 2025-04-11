@@ -1,5 +1,6 @@
 from database.db import get_db
 from time import sleep
+from bson import ObjectId
 
 POWER_TIERS = [
     {"min": 20000, "name": "Supremo", "emoji": "👑"},
@@ -39,6 +40,46 @@ DAILY_REWARDS = {
     "Celestial": 6000,
     "Supremo": 8500,
 }
+
+async def get_full_collection(user_id: str):
+    """Transforma ObjectIds em personagens completos com estrelas"""
+    db = get_db()
+    user = await db["users"].find_one({"_id": user_id})
+    if not user:
+        return []
+    
+    collection = user.get("collection", [])
+    if not collection:
+        return []
+    
+    # Se já for coleção completa
+    if isinstance(collection[0], dict):
+        return collection
+    
+    # Busca personagens e mantém as estrelas
+    characters = await db["characters"].find({"_id": {"$in": collection}}).to_list(None)
+    
+    # Cria mapa de estrelas (se existirem)
+    stars_map = {}
+    if "char_stars" in user:
+        stars_map = {k: v for k, v in user["char_stars"].items()}
+    
+    # Combina dados
+    full_collection = []
+    for char_id in collection:
+        char_id_str = str(char_id)
+        char_data = next((c for c in characters if str(c["_id"]) == char_id_str), None)
+        if char_data:
+            char_data = char_data.copy()
+            char_data["stars"] = stars_map.get(char_id_str, 0)
+            full_collection.append(char_data)
+    
+    return full_collection
+
+async def calculate_total_power_with_stars(user_id: str) -> int:
+    """Versão async que calcula poder considerando estrelas"""
+    full_collection = await get_full_collection(user_id)
+    return calculate_total_power(full_collection)
 
 def get_power_rank(power: int) -> str:
     for tier in POWER_TIERS:

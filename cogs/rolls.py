@@ -62,14 +62,19 @@ class Rolls(commands.Cog):
             new_chars_info = []
 
             for char in characters:
-                existing_char = next((c for c in collection if str(c["_id"]) == str(char["_id"])), None)
+                char_id = str(char["_id"])
+                existing_char_index = next((i for i, c in enumerate(collection) if str(c.get("_id")) == char_id), None)
                 
-                if existing_char:
-                    existing_char['stars'] = min(existing_char.get('stars', 0) + 1, 20)
-                    stars = existing_char['stars']
+                if existing_char_index is not None:
+                    # Atualiza as estrelas no personagem existente
+                    collection[existing_char_index]['stars'] = min(collection[existing_char_index].get('stars', 0) + 1, 20)
+                    stars = collection[existing_char_index]['stars']
                     action = f"🌟 +1 Estrela (Total: {stars})"
                 else:
-                    new_char = await add_to_collection(user_id, char)
+                    # Adiciona novo personagem com 0 estrelas
+                    new_char = char.copy()
+                    new_char['stars'] = 0
+                    collection.append(new_char)
                     stars = 0
                     action = "🎉 Novo personagem!"
                 
@@ -79,9 +84,15 @@ class Rolls(commands.Cog):
                     "stars": stars
                 })
 
+            # Atualiza a coleção completa no banco de dados
             await db["users"].update_one(
                 {"_id": user_id},
-                {"$set": {"last_roll": now.isoformat()}}
+                {
+                    "$set": {
+                        "collection": collection,
+                        "last_roll": now.isoformat()
+                    }
+                }
             )
 
             await self._send_roll_results(ctx, new_chars_info, star_system)
