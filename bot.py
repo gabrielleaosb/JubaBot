@@ -43,3 +43,4 @@ async def setup_hook():
   
 
 bot.run(os.getenv("DISCORD_TOKEN"))
+# salve
