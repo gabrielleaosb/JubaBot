@@ -1,4 +1,4 @@
-# 🦸 HeroCollect Bot
+# 🦸 JubaBot
 
 Bot de Discord para colecionar personagens de universos como **Marvel** e **Invencível**. Os jogadores fazem rolls para obter personagens aleatórios, acumulam poder, sobem de rank e competem no ranking do servidor.
 
